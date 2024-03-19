@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ModalActions } from "./features/ModalSlice";
+import { ResultActions } from "./features/ResultSlice";
 
 const Modal = () => {
   const modalOpen = useSelector((state) => state.modal.modalOpen);
@@ -9,6 +10,9 @@ const Modal = () => {
   const dispatch = useDispatch();
   const closeModal = () => {
     dispatch(ModalActions.closeModal());
+  };
+  const openResultModal = () => {
+    dispatch(ResultActions.openResultModal());
   };
 
   const unansweredQuestions = questions
@@ -25,7 +29,7 @@ const Modal = () => {
             answered
           </p>
           <div className="modal-button">
-            <button>Yes, and quit</button>
+            <button onClick={openResultModal}>Yes, and quit</button>
             <button onClick={closeModal}>No, go back</button>
           </div>
         </div>

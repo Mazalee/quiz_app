@@ -8,10 +8,11 @@ export const ResultSlice = createSlice({
   name: "result",
   initialState,
   reducers: {
-    resultModalOpen(state) {
+    openResultModal(state) {
       state.quizEnd = true;
     },
-    resultModalClose(state) {
+
+    closeResultModal(state) {
       state.quizEnd = false;
     },
   },
